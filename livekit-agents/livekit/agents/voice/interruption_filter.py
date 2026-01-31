@@ -91,6 +91,13 @@ class InterruptionFilter:
 
     def __init__(self, config: InterruptionFilterConfig | None = None):
         self._config = config or InterruptionFilterConfig()
+        # Normalization logic
+        self._config.backchanneling_words = frozenset(
+            self._normalize_text(w) for w in self._config.backchanneling_words
+        )
+        self._config.interrupt_keywords = frozenset(
+            self._normalize_text(w) for w in self._config.interrupt_keywords
+        )
 
     @property
     def config(self) -> InterruptionFilterConfig:
