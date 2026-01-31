@@ -72,7 +72,7 @@ Keep your tone conversational and friendly.""",
     async def on_enter(self):
         """Called when the agent joins the session."""
         self.session.generate_reply(
-            "Hello! I'm Alex, your assistant with intelligent interruption handling. "
+            instructions="Hello! I'm Alex, your assistant with intelligent interruption handling. "
             "Try asking me to explain something, and while I'm talking, say 'yeah' or 'ok' - "
             "I'll keep going without stopping. But if you say 'wait' or 'stop', I'll pause. "
             "What would you like to learn about?"
